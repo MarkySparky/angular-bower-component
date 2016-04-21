@@ -11,17 +11,17 @@ angular.module('StandardLife.angular-component', []).directive('slComponent', [f
         { name: 'A concert or play once a month', value: 1200, checked: false },
         { name: 'Weekly dinner or drinks with friends', value: 1875, checked: false },
         { name: 'Shopping trips with you + family', value: 1500, checked: false },
-        { name: 'Home improvements', value: 3375, checked: false },
-    ]
+        { name: 'Home improvements', value: 3375, checked: false }
+    ];
 
-    function itemsTotal(items){
-    	var total = 0;
-    	for (var i = 0, len = items.length; i < len; i++) {
-		  if (items[i].checked){
-				total = total + items[i].value;
-			}
-		}
-		return total
+    function itemsTotal(items) {
+        var total = 0;
+        for (var i = 0, len = items.length; i < len; i++) {
+            if (items[i].checked) {
+                total = total + items[i].value;
+            }
+        }
+        return total;
     }
 
     return {
@@ -37,15 +37,14 @@ angular.module('StandardLife.angular-component', []).directive('slComponent', [f
             scope.items = items;
             scope.total = itemsTotal(items);
 
-            scope.refresh=function(){
-            	scope.itemsTotal = itemsTotal(items);
-            }
+            scope.refresh = function() {
+                scope.itemsTotal = itemsTotal(items);
+            };
 
             scope.refresh();
 
         },
 
-        controller: function($scope, $element, $attrs) {
-        }
+        controller: function($scope, $element, $attrs) {}
     };
 }]);
