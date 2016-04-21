@@ -11,17 +11,17 @@ angular.module('StandardLife.angular-component', []).directive('slComponent', [f
         { name: 'A concert or play once a month', value: 1200, checked: false },
         { name: 'Weekly dinner or drinks with friends', value: 1875, checked: false },
         { name: 'Shopping trips with you + family', value: 1500, checked: false },
-        { name: 'Home improvements', value: 3375, checked: false },
-    ]
+        { name: 'Home improvements', value: 3375, checked: false }
+    ];
 
-    function itemsTotal(items){
-    	var total = 0;
-    	for (var i = 0, len = items.length; i < len; i++) {
-		  if (items[i].checked){
-				total = total + items[i].value;
-			}
-		}
-		return total
+    function itemsTotal(items) {
+        var total = 0;
+        for (var i = 0, len = items.length; i < len; i++) {
+            if (items[i].checked) {
+                total = total + items[i].value;
+            }
+        }
+        return total;
     }
 
     return {
@@ -30,22 +30,21 @@ angular.module('StandardLife.angular-component', []).directive('slComponent', [f
         scope: {},
 
         // replace: true,
-        templateUrl: '/component.html',
+        template: '<!-- TODO: place directive call here --> <ion-content has-header padding scroll="true"> <h1>Retirement tool</h1> <p> What kind of life would you like to lead when you\'ve said goodbye to the 9-to-5? Create a vision of your ideal retirement and we\'ll give you an idea of how much money you\'ll need to fund it. </p> <div class="list"> <div class="item energized-bg" style="text-align: center;"> <p class="subdued italic">To fund the lifestyle you\'ve just chosen, you\'ll need:</p> <h1 class="light">{{itemsTotal | currency : \'£\' : 0}}</h1> <p style="color:white;">per year before tax</p> </div> <ul class="list item-text-wrap"> <li class="item stable-bg item-checkbox" ng-repeat="item in items" ng-click="refresh();"> <label class="checkbox"> <input type="checkbox" ng-model=item.checked> </label> {{item.name}} </li> </ul> </ion-content>',
         link: function(scope, element, attrs) {
             window.s = scope;
             scope.total = 0;
             scope.items = items;
             scope.total = itemsTotal(items);
 
-            scope.refresh=function(){
-            	scope.itemsTotal = itemsTotal(items);
-            }
+            scope.refresh = function() {
+                scope.itemsTotal = itemsTotal(items);
+            };
 
             scope.refresh();
 
         },
 
-        controller: function($scope, $element, $attrs) {
-        }
+        controller: function($scope, $element, $attrs) {}
     };
 }]);
