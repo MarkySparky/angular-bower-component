@@ -1,6 +1,7 @@
 {
 	"name": "angular-component",
 	"version": "1.0.0",
+	 "main": "./component.js",
 	"authors": [
 		"markacaulfield@googlemail.com"
 	],
