@@ -25,7 +25,7 @@ TODO
 angular.module('StandardLife.angular-component', []).directive('slComponent', [ function () {
 
 	return {
-		restrict: 'A',
+		restrict: 'EA',
 		scope: {
 		},
 
@@ -39,7 +39,7 @@ angular.module('StandardLife.angular-component', []).directive('slComponent', [ 
 				}
 			}
 			
-			var html ="<div>";
+			var html ="<div>WOOP";
 			html+="</div>";
 			return html;
 		},
