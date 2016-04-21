@@ -8,21 +8,25 @@
 	<link rel="stylesheet" href="main.css"/>
 	<link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
 
-</head>
-<body>
-	<div ng-view></div>
 
-	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-	<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-	<script type="text/javascript" src="bower_components/angular-touch/angular-touch.min.js"></script>
-	<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
-	
+	<script type="text/javascript" src="http://code.ionicframework.com/1.2.4/js/ionic.bundle.min.js"></script>
+
 	<script type="text/javascript" src="component.js"></script>
 	<!--<script type="text/javascript" src="component.min.js"></script>-->
 	
 	<script type="text/javascript" src="app.js"></script>
 	
-	<script type="text/javascript" src="pages/home/HomeCtrl.js"></script>
+<!-- 	<script type="text/javascript" src="pages/home/HomeCtrl.js"></script> -->
+
+</head>
+<body ng-view>
+ 
+<ion-nav-bar ng-show="$root.loggedIn" align-title="center" class="light bar-balanced">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view>
+    </ion-nav-view>
+
 </body>
 </html>

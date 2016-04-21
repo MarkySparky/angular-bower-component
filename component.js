@@ -1,53 +1,51 @@
-/**
-@toc
-
-@param {Object} scope (attrs that must be defined on the scope (i.e. in the controller) - they can't just be defined in the partial html). REMEMBER: use snake-case when setting these on the partial!
-TODO
-
-@param {Object} attrs REMEMBER: use snake-case when setting these on the partial! i.e. my-attr='1' NOT myAttr='1'
-TODO
-
-@dependencies
-TODO
-
-@usage
-partial / html:
-TODO
-
-controller / js:
-TODO
-
-//end: usage
-*/
-
 'use strict';
 
-angular.module('StandardLife.angular-component', []).directive('slComponent', [ function () {
+angular.module('StandardLife.angular-component', []).directive('slComponent', [function() {
 
-	return {
-		restrict: 'EA',
-		scope: {
-		},
+    var items = [
+        { name: 'Basic living costs', value: 9500, checked: true },
+        { name: '2 weeks holiday each year', value: 2500, checked: false },
+        { name: '4 weeks in the sun each winter', value: 5125, checked: false },
+        { name: 'A car + 5 yearly upgrade', value: 7087.50, checked: true },
+        { name: 'Health club membership', value: 600, checked: false },
+        { name: 'A concert or play once a month', value: 1200, checked: false },
+        { name: 'Weekly dinner or drinks with friends', value: 1875, checked: false },
+        { name: 'Shopping trips with you + family', value: 1500, checked: false },
+        { name: 'Home improvements', value: 3375, checked: false },
+    ]
 
-		// replace: true,
-		template: function(element, attrs) {
-			var defaultsAttrs ={
-			};
-			for(var xx in defaultsAttrs) {
-				if(attrs[xx] ===undefined) {
-					attrs[xx] =defaultsAttrs[xx];
-				}
+    function itemsTotal(items){
+    	var total = 0;
+    	for (var i = 0, len = items.length; i < len; i++) {
+		  if (items[i].checked){
+				total = total + items[i].value;
 			}
-			
-			var html ="<div>WOOP";
-			html+="</div>";
-			return html;
-		},
-		
-		link: function(scope, element, attrs) {
-		},
-		
-		controller: function($scope, $element, $attrs) {
 		}
-	};
+		return total
+    }
+
+    return {
+        restrict: 'EA',
+        replace: false,
+        scope: {},
+
+        // replace: true,
+        templateUrl: '/component.html',
+        link: function(scope, element, attrs) {
+            window.s = scope;
+            scope.total = 0;
+            scope.items = items;
+            scope.total = itemsTotal(items);
+
+            scope.refresh=function(){
+            	scope.itemsTotal = itemsTotal(items);
+            }
+
+            scope.refresh();
+
+        },
+
+        controller: function($scope, $element, $attrs) {
+        }
+    };
 }]);

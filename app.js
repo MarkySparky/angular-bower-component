@@ -6,27 +6,31 @@
 'use strict';
 
 angular.module('myApp', [
-    'ngRoute', 'ngSanitize', 'ngTouch', 'ngAnimate', //additional angular modules
+    'ionic', 'ngSanitize', 'ngAnimate', 'ui.router', //additional angular modules
     'StandardLife.angular-component'
 ]).
-config(['$routeProvider', '$locationProvider', '$compileProvider', function($routeProvider, $locationProvider, $compileProvider) {
+config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     /**
     setup - whitelist, appPath, html5Mode
     @toc 1.
     */
-    $locationProvider.html5Mode(false); //can't use this with github pages / if don't have access to the server
 
     // var staticPath ='/';
     var staticPath;
     // staticPath ='/angular-directives/angular-component/';		//local
-    //staticPath ='/';		//nodejs (local)
-    staticPath = '/angular-bower-component/'; //gh-pages
+    staticPath ='/';		//nodejs (local)
+    //staticPath = '/angular-bower-component/'; //gh-pages
     var appPathRoute = '/';
     var pagesPath = staticPath + 'pages/';
 
 
-    $routeProvider.when(appPathRoute + 'home', { templateUrl: pagesPath + 'home/home.html' });
+var homeState = appPathRoute + 'home';
+$stateProvider
+    .state(homeState, {
+      url: '/home',
+      templateUrl: pagesPath + 'home/home.html'
+    });
 
-    $routeProvider.otherwise({ redirectTo: appPathRoute + 'home' });
+	$urlRouterProvider.otherwise(appPathRoute + 'home' );
 
 }]);
