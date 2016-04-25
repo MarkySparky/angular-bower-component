@@ -3,15 +3,15 @@
 angular.module('StandardLife.angular-component', []).directive('slComponent', [function() {
 
     var items = [
-        { name: 'Basic living costs', value: 9500, checked: true },
-        { name: '2 weeks holiday each year', value: 2500, checked: false },
-        { name: '4 weeks in the sun each winter', value: 5125, checked: false },
-        { name: 'A car + 5 yearly upgrade', value: 7087.50, checked: true },
-        { name: 'Health club membership', value: 600, checked: false },
-        { name: 'A concert or play once a month', value: 1200, checked: false },
-        { name: 'Weekly dinner or drinks with friends', value: 1875, checked: false },
-        { name: 'Shopping trips with you + family', value: 1500, checked: false },
-        { name: 'Home improvements', value: 3375, checked: false }
+        { name: 'Basic living costs', value: 9500, checked: true, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_basicliving_on.png' },
+        { name: '2 weeks holiday each year', value: 2500, checked: false, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_2weekholiday_on.png' },
+        { name: '4 weeks in the sun each winter', value: 5125, checked: false, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_4weekholiday_on.png' },
+        { name: 'A car + 5 yearly upgrade', value: 7087.50, checked: true, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_Acar_on.png' },
+        { name: 'Health club membership', value: 600, checked: false, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_healthclub_on.png' },
+        { name: 'A concert or play once a month', value: 1200, checked: false, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_concert_on.png' },
+        { name: 'Weekly dinner or drinks with friends', value: 1875, checked: false, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_dinner_on.png' },
+        { name: 'Shopping trips with you + family', value: 1500, checked: false, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_shopping_on.png' },
+        { name: 'Home improvements', value: 3375, checked: false, 'image': 'https://www.standardlife.co.uk/resources/tools/retirement-tool/images/icon_homeimprovement_on.png' }
     ];
 
     function itemsTotal(items) {
