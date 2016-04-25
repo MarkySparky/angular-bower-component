@@ -19,7 +19,7 @@ config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRou
     var staticPath;
     // staticPath ='/angular-directives/angular-component/';		//local
     staticPath ='/';		//nodejs (local)
-    //staticPath = '/angular-bower-component/'; //gh-pages
+    staticPath = '/angular-bower-component/'; //gh-pages
     var appPathRoute = '/';
     var pagesPath = staticPath + 'pages/';
 
