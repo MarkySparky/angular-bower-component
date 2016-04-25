@@ -1,1 +1,9 @@
 /* jrg-component */
+.retirement-tool {
+  background-color: yellow;
+}
+.retirement-tool img {
+  position: absolute;
+  right: 10px;
+  top: ;
+}
